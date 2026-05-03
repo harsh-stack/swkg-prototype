@@ -1,0 +1,20 @@
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+.venv/
+venv/
+.env
+.env.local
+
+# Generated experiment outputs
+results/*.csv
+results/*.json
+results/*.txt
+results/*.png
+results_backup_*/
+
+# IDE
+.idea/
+.vscode/
+*.swp

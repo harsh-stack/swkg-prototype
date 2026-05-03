@@ -1,0 +1,20 @@
+import os
+from anthropic import Anthropic
+
+key = os.environ.get("ANTHROPIC_API_KEY")
+print("Loaded:", bool(key))
+print("Prefix:", key[:8] if key else None)
+print("Length:", len(key) if key else 0)
+
+if not key:
+    raise SystemExit("Set ANTHROPIC_API_KEY")
+
+client = Anthropic(api_key=key)
+
+resp = client.messages.create(
+    model="claude-haiku-4-5-20251001",
+    max_tokens=20,
+    messages=[{"role": "user", "content": "Hello"}],
+)
+
+print(resp.content[0].text)
